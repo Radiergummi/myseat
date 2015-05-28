@@ -1,0 +1,70 @@
+RewriteEngine On
+
+# Homepage
+RewriteRule ^verwaltung(/?)$ /web/main_page.php									[L,QSA]
+
+# Dashboard
+RewriteRule ^verwaltung/dashboard(/?)$ /web/main_page.php?p=1								[L,QSA]
+RewriteRule ^verwaltung/dashboard/übersicht(/?)$ /web/main_page.php?p=1&q=3	[L,QSA]
+RewriteRule ^verwaltung/dashboard/woche(/?)$ /web/main_page.php?p=1&q=1			[L,QSA]
+RewriteRule ^verwaltung/dashboard/monat(/?)$ /web/main_page.php?p=1&q=2			[L,QSA]
+
+# Reservierungen
+RewriteRule ^verwaltung/reservierungen(/?)$ /web/main_page.php?p=2&q=1 [L,QSA]
+RewriteRule ^verwaltung/reservierungen/([0-9]+)(/?)$ /web/main_page.php?p=2&outletID=$1 [L,QSA]
+RewriteRule ^verwaltung/reservierungen/([0-9]{4}-[0-9]{2}-[0-9]{2})(/?)$ /web/main_page.php?p=2&selectedDate=$1-$2-$3 [L,QSA]
+RewriteRule ^verwaltung/reservierungen/([0-9]{4}-[0-9]{2}-[0-9]{2})/([0-9]+)(/?)$ /web/main_page.php?p=2&selectedDate=$1-$2-$3&OutletID=$4    [L,QSA]
+RewriteRule ^verwaltung/reservierungen/neu(/?)$ /web/main_page.php?p=2&q=2 [L,QSA]
+RewriteRule ^verwaltung/reservierungen/storniert(/?)$ /web/main_page.php?p=2&q=3&s=1 [L,QSA]
+
+# Einstellungen: Statistiken
+RewriteRule ^verwaltung/statistiken(/?)$ /web/main_page.php?p=3 [L,QSA]
+
+# Einstellungen: Export
+RewriteRule ^verwaltung/export(/?)$ /web/main_page.php?p=4 [L,QSA]
+
+# Einstellungen: Outlets
+RewriteRule ^verwaltung/einstellungen(/?)$ /web/main_page.php?p=6&btn=1 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/outlets(/?)$ /web/main_page.php?p=6&q=1&btn=1 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/outlets/aktiv(/?)$ /web/main_page.php?p=6&q=1&btn=1 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/outlets/inaktiv(/?)$ /web/main_page.php?p=6&q=1&btn=3 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/outlets/neu(/?)$ /web/main_page.php?p=6&q=1&btn=2 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/outlets/([0-9]+)(/?)$ /web/main_page.php?p=101&outletID=$1 [L,QSA]
+
+# Einstellungen: Benutzer
+RewriteRule ^verwaltung/einstellungen/benutzer(/?)$ /web/main_page.php?p=6&q=2&btn=1 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/benutzer/neu(/?)$ /web/main_page.php?p=6&q=2&btn=2 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/benutzer/([0-9]+)(/?)$ /web/main_page.php?p=6&q=2&btn=3&userID=$1 [L,QSA]
+
+# Einstellungen: Optionen
+RewriteRule ^verwaltung/einstellungen/optionen(/?)$ /web/main_page.php?p=6&q=3 [L,QSA]
+
+# Einstellungen: Veranstaltungen
+RewriteRule ^verwaltung/einstellungen/veranstaltungen(/?)$ /web/main_page.php?p=6&q=4&btn=1 [L,QSA]
+RewriteRule ^verwaltung/einstellungen/veranstaltungen/neu(/?)$ /web/main_page.php?p=6&q=4&btn=2 [L,QSA]
+
+# Einstellungen: Objekt
+RewriteRule ^verwaltung/einstellungen/objekt(/?)$ /web/main_page.php?p=6&q=5 [L,QSA]
+
+# Einstellungen: Plugins
+RewriteRule ^verwaltung/einstellungen/plugins(/?)$ /web/main_page.php?p=6&q=7 [L,QSA]
+
+# Statische Ressourcen: CSS, JS und Bilder
+RewriteRule ^(css|js|images)/(.*)$ /web/assets/$1/$2 [L,QSA]
+
+# Übersetzungen und AJAX-Handler
+RewriteRule ^(lang|ajax)/(.*)$ /web/$1/$2 [L,QSA]
+
+# An- und Abmeldung
+RewriteRule ^abmelden(/?)$ /index.php?logout=1 [L,QSA]
+RewriteRule ^anmelden(/?)$ /login/ [L,QSA]
+
+
+
+
+# Zugriff auf JSON-Dateien verhindern
+<Files ~ "\.json$">
+ Order allow,deny
+ Deny from all   
+ Satisfy All     
+</Files>

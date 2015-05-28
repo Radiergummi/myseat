@@ -1,0 +1,11 @@
+{
+	"app": {
+		"url": "http://restaurant.9dev.de",
+		"env": "development",
+		
+		"daylight": {
+			"noon": "14:00",
+			"evening": "18:00"
+		}
+	}
+}

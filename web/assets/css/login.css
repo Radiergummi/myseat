@@ -1,0 +1,77 @@
+body.login {
+	background: #DED0C3;
+	padding: 5rem;
+}
+
+.most-recent {
+	background: none;
+	box-shadow: none;
+	border: 0;
+}
+.most-recent > header > h1 {
+	text-align: center;
+	color: #555;
+	text-shadow: 1px 1px rgba(255,255,255,.5), -1px -1px rgba(0,0,0,.1);
+}
+
+#loginform input {
+	width: calc(100% - 2rem - 2px);
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: .2rem 0;
+  
+	-webkit-appearance: none;
+	padding: 1rem;
+  background: rgba(0,0,0,.035);
+  color: #fff;
+  border: 1px solid rgba(0,0,0,.02);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px -.9px rgba(0,0,0,.9);
+  transition: all .15s;
+  outline: 0;
+}
+
+#loginform input[type=text],
+#loginform input[type=password],
+#loginform input[type=submit] {
+	  width: calc(100% - 2rem);
+	  margin: .5rem auto;
+	}
+
+#loginform input[type=submit] {
+		width: initial;
+		margin-bottom: 20px;
+	  padding: 1rem 2rem;
+	  font-weight: normal;
+	  cursor: pointer;
+	  text-shadow: none;
+	}
+
+#loginform input[type=submit]:hover,
+#loginform input[type=submit]:focus {
+		background: #fff;
+		color: #C7BBB1;
+	}
+	
+#loginform input:not([type=submit])::-webkit-input-placeholder {
+		color: #fff;
+		text-shadow: 1px 1px rgba(0,0,0,0.2);
+	}
+
+#loginform input:not([type=submit]):focus::-webkit-input-placeholder {
+		color: rgba(0,0,0,0);
+		text-shadow: none;
+	}
+	
+#loginform input:focus {
+		border: 1px solid #fff;
+		background: rgba(0,0,0,.038);
+		box-shadow: none;
+	}
+	
+*::selection {
+  background: #C7BBB1; /* WebKit/Blink Browsers */
+}
+*::-moz-selection {
+  background: #C7BBB1; /* Gecko Browsers */
+}

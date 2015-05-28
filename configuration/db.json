@@ -1,0 +1,10 @@
+{
+	"db": {
+		"host": "mysql5.9dev.de",
+		"port": "3306",
+		"user": "db400167_20",
+		"password": "k=a2n6dAqgyv",
+		"name": "db400167_20",
+		"prefix": ""
+	}
+}
